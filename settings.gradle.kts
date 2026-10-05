@@ -1,0 +1,39 @@
+pluginManagement {
+    includeBuild("build-logic")
+    repositories {
+        google {
+            content {
+                includeGroupByRegex("com\\.android.*")
+                includeGroupByRegex("com\\.google.*")
+                includeGroupByRegex("androidx.*")
+            }
+        }
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+plugins {
+    id("org.gradle.toolchains.foojay-resolver-convention") version "1.0.0"
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+rootProject.name = "Vaultly"
+include(":app")
+include(":core:domain")
+include(":core:security")
+include(":core:database")
+include(":core:data")
+include(":core:presentation")
+include(":core:design-system")
+include(":feature:auth:presentation")
+include(":feature:home:presentation")
+include(":feature:vault:presentation")
+include(":feature:notes:presentation")
+include(":feature:ai:presentation")
+include(":feature:settings:presentation")
